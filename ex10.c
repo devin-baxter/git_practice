@@ -1,58 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ex10.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: debaxter <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/30 13:01:54 by debaxter          #+#    #+#             */
+/*   Updated: 2019/10/30 13:01:55 by debaxter         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
-	if (argc != 2)
+	int	i;
+	char	letter;
+
+	i = 0;
+	if (argc != 2 || !argv[1])
 	{
-		printf("ERROR: You need one argument.\n");
+		printf("ERROR: Function requires one argument.\n");
 		// This is how you abort a program
-		return 1;
+		return (1);
 	}
-
-	int	i = 0;
-	for (i = 0; argv[1][i] != '\0'; i++)
+	while (argv[1][i] != '\0')
 	{
-		char	letter = argv[1][i];
+		letter = argv[1][i];
 
-		switch	(letter)
+		switch (letter)
 		{
 			case 'a':
 			case 'A':
-				printf("%d: 'A'\n", i);
+				printf("%d: 'A'\n", i+1);
 				break;
 
 			case 'e':
 			case 'E':
-				printf("%d: 'E'\n", i);
+				printf("%d: 'E'\n", i+1);
 				break;
 
 			case 'i':
 			case 'I':
-				printf("%d: 'I'\n", i);
+				printf("%d: 'I'\n", i+1);
 				break;
 
 			case 'o':
 			case 'O':
-				printf("%d: 'O'\n", i);
+				printf("%d: 'O'\n", i+1);
 				break;
 
 			case 'u':
 			case 'U':
-				printf("%d: 'U'\n", i);
+				printf("%d: 'U'\n", i+1);
 				break;
 
 			case 'y':
 			case 'Y':
 				if (i > 2)
 				{
-					// It's only sometimes Y
-					printf("%d: 'Y'\n", i);
+					printf("%d: 'Y'\n", i+1);
 				}
 				break;
 
+			case '.':
+			case ',':
+			case '!':
+			case ' ':
+				printf("%d:\n", i+1);
+				break;
+
 			default:
-				printf("%d: %c is not a vowel.\n", i, letter);
+				printf("%d: %c is not a vowel\n", i+1, letter);
+				break;
 		}
+		i++;
 	}
-	return 0;
+	return (0);
 }
